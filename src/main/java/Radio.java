@@ -8,7 +8,6 @@ public class Radio {
     public int getCurrentStation() {
         return currentStation;
     }
-
     public void setCurrentStation(int currentStation) {
         if (currentStation > maxStation) {
             return;
@@ -52,6 +51,8 @@ public class Radio {
     public void decreaseVolume() {
         if (currentVolume > 0) {
             currentVolume--;
+
         }
     }
+
 }
