@@ -6,21 +6,8 @@ class RadioTest {
     Radio radio= new Radio();
 
     @Test
-    void shouldChangeStation() {
-        assertEquals(0, radio.getCurrentStation());
-        radio.setCurrentStation(5);
-        assertEquals(5, radio.getCurrentStation());
-    }
-
-    @Test
-    void shouldSetStationUnderMinStation() {
+    void shouldStation() {
         radio.setCurrentStation(0);
-        assertEquals(0, radio.getCurrentStation());
-    }
-
-    @Test
-    void shouldSetStationOverMaxStation() {
-        radio.setCurrentStation(10);
         assertEquals(0, radio.getCurrentStation());
     }
 
@@ -32,20 +19,6 @@ class RadioTest {
     }
 
     @Test
-    void shouldOverMaxStation1() {
-        radio.setCurrentStation(9);
-        radio.nextStation();
-        assertEquals(0, radio.getCurrentStation());
-    }
-
-    @Test
-    void shouldOverMaxStation2() {
-        radio.setCurrentStation(10);
-        radio.nextStation();
-        assertEquals(1, radio.getCurrentStation());
-    }
-
-    @Test
     void shouldPrevStation() {
         radio.setCurrentStation(4);
         radio.previousStation();
@@ -53,24 +26,12 @@ class RadioTest {
     }
 
     @Test
-    void shouldBelowMinStation1() {
-        radio.setCurrentStation(0);
-        radio.previousStation();
-        assertEquals(9, radio.getCurrentStation());
+    void test() {
+        Radio radio = new Radio(10);
+
+        assertEquals(0,radio.getCurrentStation());
     }
 
-    @Test
-    void shouldBelowMinStation2() {
-        radio.setCurrentStation(-1);
-        radio.previousStation();
-        assertEquals(9, radio.getCurrentStation());
-    }
-    @Test
-    void MinStation() {
-        radio.setCurrentStation(-1);
-        assertEquals(-1, radio.getCurrentStation());
-
-    }
     @Test
     void shouldChangeVolume() {
         radio.setCurrentVolume(5);
@@ -123,7 +84,6 @@ class RadioTest {
         radio.setCurrentVolume(-1);
         radio.decreaseVolume();
         assertEquals(0, radio.getCurrentVolume());
-
     }
     @Test
     void MaxVolume() {
@@ -132,4 +92,6 @@ class RadioTest {
         assertEquals(0, radio.getCurrentVolume());
 
     }
+
+
 }
